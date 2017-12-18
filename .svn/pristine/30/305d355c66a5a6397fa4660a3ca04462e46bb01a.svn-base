@@ -1,0 +1,76 @@
+
+package services;
+
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import repositories.CustomRecordRepository;
+import domain.CustomRecord;
+import domain.Dancer;
+
+@Service
+@Transactional
+public class CustomRecordService {
+
+	// Managed Repository
+	// =============================================================================
+
+	@Autowired
+	private CustomRecordRepository	customRecordRepository;
+
+	@Autowired
+	private DancerService			dancerService;
+
+
+	// Constructor methods
+	// ============================================================================
+
+	// Simple CRUD methods
+	// ============================================================================
+
+	public CustomRecord findOne(final int customRecordId) {
+		CustomRecord result;
+
+		result = this.customRecordRepository.findOne(customRecordId);
+
+		return result;
+	}
+
+	public Collection<CustomRecord> findAll() {
+		Collection<CustomRecord> result;
+
+		result = this.customRecordRepository.findAll();
+
+		return result;
+	}
+
+	public CustomRecord save(final CustomRecord customRecord) {
+		Assert.notNull(customRecord);
+		CustomRecord result;
+
+		final Dancer principal = this.dancerService.findByPrincipal();
+		Assert.isTrue(principal.equals(customRecord.getCurriculum().getDancer()));
+
+		result = this.customRecordRepository.save(customRecord);
+
+		return result;
+	}
+
+	public void delete(CustomRecord customRecord) {
+		Assert.notNull(customRecord);
+		Dancer principal;
+		
+		principal = dancerService.findByPrincipal();
+		Assert.notNull(principal);	
+		
+		customRecordRepository.delete(customRecord);		
+	}
+
+	// Other Business Methods
+	// =========================================================================
+
+}

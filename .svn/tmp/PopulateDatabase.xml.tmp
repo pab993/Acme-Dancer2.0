@@ -1,0 +1,950 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- * PopulateDatabase.xml * * Copyright (C) 2017 Universidad de Sevilla 
+	* * The use of this project is hereby constrained to the conditions of the 
+	* TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<!-- User accounts -->
+
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount8" class="security.UserAccount">
+		<property name="username" value="admin2" />
+		<property name="password" value="c84258e9c39059a89ab77d846ddab909" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="academy1" />
+		<property name="password" value="2867dc13a84476546c069b33dc859bc7" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ACADEMY" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="academy2" />
+		<property name="password" value="86cbff988e1e889653b316f6695e5e6b" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ACADEMY" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount6" class="security.UserAccount">
+		<property name="username" value="academy3" />
+		<property name="password" value="526c4e886de557da4a11880c41fe3c0f" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ACADEMY" />
+				</bean>
+			</list>
+		</property>
+	</bean>	
+
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="dancer1" />
+		<property name="password" value="932f3b9f35d20f6202d5181db55358aa" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="DANCER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="dancer2" />
+		<property name="password" value="c2b207fa4f0fd315eeae2a7643c7a791" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="DANCER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount7" class="security.UserAccount">
+		<property name="username" value="dancer3" />
+		<property name="password" value="e1af577da725228139aa987d4c3dacb4" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="DANCER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Other domain beans come here -->
+
+	<!-- ADMIN -->
+
+	<bean id="admin" class="domain.Administrator">
+		<property name="name" value="NameAdmin" />
+		<property name="surname" value="SurnameAdmin" />
+		<property name="phone" value="+ES647382899" />
+		<property name="email" value="admin@admin.com" />
+		<property name="postalAddress" value="41008" />
+		<property name="userAccount" ref="userAccount1" />
+		<property name="dalems">
+			<list>
+				<ref bean="dalem1"/>
+				<ref bean="dalem2"/>
+				<ref bean="dalem3"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="admin2" class="domain.Administrator">
+		<property name="name" value="NameAdmin2" />
+		<property name="surname" value="SurnameAdmin2" />
+		<property name="phone" value="+ES647382879" />
+		<property name="email" value="admin2@admin2.com" />
+		<property name="postalAddress" value="41018" />
+		<property name="userAccount" ref="userAccount8" />
+		<property name="dalems">
+			<list>
+				<ref bean="dalem4"/>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- ACADEMIES -->
+
+	<bean id="academy1" class="domain.Academy">
+		<property name="name" value="NameAcademy1" />
+		<property name="surname" value="SurnameAcademy1" />
+		<property name="phone" value="+ES647311822" />
+		<property name="email" value="academy@academy1.com" />
+		<property name="postalAddress" value="41006" />
+		<property name="comercialName" value="ComercialNameAcademy1" />
+		<property name="userAccount" ref="userAccount2" />
+		<property name="courses">
+			<list>
+				<ref bean="course1" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="academy2" class="domain.Academy">
+		<property name="name" value="NameAcademy2" />
+		<property name="surname" value="SurnameAcademy2" />
+		<property name="phone" value="+ES647311753" />
+		<property name="email" value="academy@academy2.com" />
+		<property name="postalAddress" value="41002" />
+		<property name="comercialName" value="ComercialNameAcademy2" />
+		<property name="userAccount" ref="userAccount5" />
+		<property name="courses">
+			<list>
+				<ref bean="course4" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="academy3" class="domain.Academy">
+		<property name="name" value="NameAcademy3" />
+		<property name="surname" value="SurnameAcademy3" />
+		<property name="phone" value="+ES647311789" />
+		<property name="email" value="academy@academy3.com" />
+		<property name="postalAddress" value="41001" />
+		<property name="comercialName" value="ComercialNameAcademy3" />
+		<property name="userAccount" ref="userAccount6" />
+		<property name="courses">
+			<list>
+				<ref bean="course5" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- DANCERS -->
+
+	<bean id="dancer1" class="domain.Dancer">
+		<property name="name" value="NameDancer1" />
+		<property name="surname" value="SurnameDancer1" />
+		<property name="phone" value="+ES647311854" />
+		<property name="email" value="dancer@dancer1.com" />
+		<property name="postalAddress" value="41003" />
+		<property name="userAccount" ref="userAccount3" />
+
+		<property name="applies">
+			<list>
+				<ref bean="apply1" />
+				<ref bean="apply4" />
+				<ref bean="apply5" />
+			</list>
+		</property>
+		
+		<property name="curricula">
+			<list>
+				<ref bean="curriculum1" />
+				<ref bean="curriculum2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dancer2" class="domain.Dancer">
+		<property name="name" value="NameDancer2" />
+		<property name="surname" value="SurnameDancer2" />
+		<property name="phone" value="+ES647311887" />
+		<property name="email" value="dancer@dancer2.com" />
+		<property name="postalAddress" value="41005" />
+		<property name="userAccount" ref="userAccount4" />
+
+		<property name="applies">
+			<list>
+				<ref bean="apply2" />
+				<ref bean="apply3" />
+				<ref bean="apply8" />
+			</list>
+		</property>
+		
+		<property name="curricula">
+			<list>
+				<ref bean="curriculum3" />
+			</list>
+		</property>
+		
+	</bean>
+	
+	<bean id="dancer3" class="domain.Dancer">
+		<property name="name" value="NameDancer3" />
+		<property name="surname" value="SurnameDancer3" />
+		<property name="phone" value="+ES647317426" />
+		<property name="email" value="dancer@dancer3.com" />
+		<property name="postalAddress" value="41007" />
+		<property name="userAccount" ref="userAccount7" />
+
+		<property name="applies">
+			<list>
+				<ref bean="apply6" />
+				<ref bean="apply7" />
+			</list>
+		</property>
+		
+		<property name="curricula">
+			<list>
+				<!-- <ref bean="curriculum4" /> -->
+			</list>
+		</property>
+	</bean>
+
+	<!-- STYLES -->
+
+	<bean id="style1" class="domain.Style">
+		<property name="name" value="NameStyle1" />
+		<property name="description" value="DescriptionStyle1" />
+
+		<property name="pictures">
+			<list>
+				<value>http://www.picture1.com</value>
+				<value>http://www.picture2.com</value>
+			</list>
+		</property>
+
+		<property name="videos">
+			<list>
+				<value>http://www.videos1.com</value>
+			</list>
+		</property>
+
+		<property name="courses">
+			<list>
+				<ref bean="course1" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="style2" class="domain.Style">
+		<property name="name" value="NameStyle2" />
+		<property name="description" value="DescriptionStyle2" />
+
+		<property name="pictures">
+			<list>
+				<value>http://www.picture3.com</value>
+				<value>http://www.picture4.com</value>
+			</list>
+		</property>
+
+		<property name="videos">
+			<list>
+				<value>http://www.videos2.com</value>
+			</list>
+		</property>
+
+		<property name="courses">
+			<list>
+				<ref bean="course2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="style3" class="domain.Style">
+		<property name="name" value="salsa" />
+		<property name="description" value="DescriptionStyle3" />
+
+		<property name="pictures">
+			<list>
+				<value>http://www.picture3.com</value>
+				<value>http://www.picture4.com</value>
+			</list>
+		</property>
+
+		<property name="videos">
+			<list>
+				<value>http://www.videos2.com</value>
+			</list>
+		</property>
+
+		<property name="courses">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="style4" class="domain.Style">
+		<property name="name" value="mambo" />
+		<property name="description" value="DescriptionStyle4" />
+
+		<property name="pictures">
+			<list>
+				<value>http://www.picture3.com</value>
+				<value>http://www.picture4.com</value>
+			</list>
+		</property>
+
+		<property name="videos">
+			<list>
+				<value>http://www.videos2.com</value>
+			</list>
+		</property>
+
+		<property name="courses">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="style5" class="domain.Style">
+		<property name="name" value="bachata" />
+		<property name="description" value="DescriptionStyle5" />
+
+		<property name="pictures">
+			<list>
+				<value>http://www.picture3.com</value>
+				<value>http://www.picture4.com</value>
+			</list>
+		</property>
+
+		<property name="videos">
+			<list>
+				<value>http://www.videos2.com</value>
+			</list>
+		</property>
+
+		<property name="courses">
+			<list>
+				<ref bean="course4" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="style6" class="domain.Style">
+		<property name="name" value="pachanga" />
+		<property name="description" value="DescriptionStyle6" />
+
+		<property name="pictures">
+			<list>
+				<value>http://www.picture3.com</value>
+				<value>http://www.picture4.com</value>
+			</list>
+		</property>
+
+		<property name="videos">
+			<list>
+				<value>http://www.videos2.com</value>
+			</list>
+		</property>
+
+		<property name="courses">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="style7" class="domain.Style">
+		<property name="name" value="chá-chá" />
+		<property name="description" value="DescriptionStyle7" />
+
+		<property name="pictures">
+			<list>
+				<value>http://www.picture3.com</value>
+				<value>http://www.picture4.com</value>
+			</list>
+		</property>
+
+		<property name="videos">
+			<list>
+				<value>http://www.videos2.com</value>
+			</list>
+		</property>
+
+		<property name="courses">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="style8" class="domain.Style">
+		<property name="name" value="rumba" />
+		<property name="description" value="DescriptionStyle8" />
+
+		<property name="pictures">
+			<list>
+				<value>http://www.picture3.com</value>
+				<value>http://www.picture4.com</value>
+			</list>
+		</property>
+
+		<property name="videos">
+			<list>
+				<value>http://www.videos2.com</value>
+			</list>
+		</property>
+
+		<property name="courses">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="style9" class="domain.Style">
+		<property name="name" value="kizomba" />
+		<property name="description" value="DescriptionStyle9" />
+
+		<property name="pictures">
+			<list>
+				<value>http://www.picture3.com</value>
+				<value>http://www.picture4.com</value>
+			</list>
+		</property>
+
+		<property name="videos">
+			<list>
+				<value>http://www.videos2.com</value>
+			</list>
+		</property>
+
+		<property name="courses">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<!-- COURSES -->
+
+	<bean id="course1" class="domain.Course">
+		<property name="title" value="TitleCourse1" />
+		<property name="level" value="LevelCourse1" />
+		<property name="startDate" value="07/28/2017 12:00" />
+		<property name="endDate" value="08/02/2018 14:00" />
+		<property name="day" value="MONDAY" />
+		<property name="stage" value="DELIVERING" />
+		<property name="hour" value="10:00" />
+		<property name="academy" ref="academy1" />
+		<property name="style" ref="style1" />
+
+		<property name="applies">
+			<list>
+				<ref bean="apply1" />
+				<ref bean="apply6" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="course2" class="domain.Course">
+		<property name="title" value="TitleCourse2" />
+		<property name="level" value="LevelCourse2" />
+		<property name="startDate" value="08/14/2017 17:00" />
+		<property name="endDate" value="11/07/2018 20:00" />
+		<property name="day" value="WEDNESDAY" />
+		<property name="hour" value="11:00" />
+		<property name="stage" value="DELIVERING" />
+		<property name="academy" ref="academy1" />
+		<property name="style" ref="style2" />
+
+		<property name="applies">
+			<list>
+				<ref bean="apply2" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="course3" class="domain.Course">
+		<property name="title" value="TitleCourse3" />
+		<property name="level" value="LevelCourse3" />
+		<property name="startDate" value="08/20/2017 17:00" />
+		<property name="endDate" value="12/07/2018 20:00" />
+		<property name="day" value="WEDNESDAY" />
+		<property name="hour" value="11:00" />
+		<property name="stage" value="ORGANISING" />
+		<property name="academy" ref="academy1" />
+		<property name="style" ref="style2" />
+
+		<property name="applies">
+			<list>
+				<ref bean="apply4" />
+				<ref bean="apply7" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="course4" class="domain.Course">
+		<property name="title" value="TitleCourse4" />
+		<property name="level" value="LevelCourse4" />
+		<property name="startDate" value="11/04/2018 17:00" />
+		<property name="endDate" value="12/07/2019 20:00" />
+		<property name="day" value="MONDAY" />
+		<property name="hour" value="13:00" />
+		<property name="stage" value="ORGANISING" />
+		<property name="academy" ref="academy2" />
+		<property name="style" ref="style5" />
+
+		<property name="applies">
+			<list>
+				<ref bean="apply3" />
+				<ref bean="apply8" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="course5" class="domain.Course">
+		<property name="title" value="TitleCourse5" />
+		<property name="level" value="LevelCourse5" />
+		<property name="startDate" value="07/02/2017 18:00" />
+		<property name="endDate" value="08/06/2018 20:00" />
+		<property name="day" value="MONDAY" />
+		<property name="hour" value="15:00" />
+		<property name="stage" value="ORGANISING" />
+		<property name="academy" ref="academy3" />
+		<property name="style" ref="style6" />
+
+		<property name="applies">
+			<list>
+				<ref bean="apply5" />
+			</list>
+		</property>
+	</bean>
+	
+	<!-- APPLIES -->
+
+	<bean id="apply1" class="domain.Apply">
+		<property name="createMoment" value="07/02/2017 15:30" />
+		<property name="status" value="REJECTED" />
+		<property name="dancer" ref="dancer1" />
+		<property name="course" ref="course1" />
+	</bean>
+
+	<bean id="apply2" class="domain.Apply">
+		<property name="createMoment" value="01/05/2017 08:45" />
+		<property name="status" value="PENDING" />
+		<property name="dancer" ref="dancer2" />
+		<property name="course" ref="course2" />
+	</bean>
+	
+	<bean id="apply3" class="domain.Apply">
+		<property name="createMoment" value="03/06/2016 15:33" />
+		<property name="status" value="ACCEPTED" />
+		<property name="dancer" ref="dancer2" />
+		<property name="course" ref="course4" />
+	</bean>
+	
+	<bean id="apply4" class="domain.Apply">
+		<property name="createMoment" value="04/04/2016 18:08" />
+		<property name="status" value="PENDING" />
+		<property name="dancer" ref="dancer1" />
+		<property name="course" ref="course3" />
+	</bean>
+	
+	<bean id="apply5" class="domain.Apply">
+		<property name="createMoment" value="12/11/2016 21:16" />
+		<property name="status" value="REJECTED" />
+		<property name="dancer" ref="dancer1" />
+		<property name="course" ref="course5" />
+	</bean>
+	
+	<bean id="apply6" class="domain.Apply">
+		<property name="createMoment" value="03/01/2017 09:58" />
+		<property name="status" value="PENDING" />
+		<property name="dancer" ref="dancer3" />
+		<property name="course" ref="course1" />
+	</bean>
+
+	<bean id="apply7" class="domain.Apply">
+		<property name="createMoment" value="04/04/2017 23:00" />
+		<property name="status" value="PENDING" />
+		<property name="dancer" ref="dancer3" />
+		<property name="course" ref="course3" />
+	</bean>
+	
+	<bean id="apply8" class="domain.Apply">
+		<property name="createMoment" value="04/04/2017 23:00" />
+		<property name="status" value="PENDING" />
+		<property name="dancer" ref="dancer2" />
+		<property name="course" ref="course4" />
+	</bean>
+	
+		<!-- CURRICULA -->
+
+	<bean id="curriculum1" class="domain.Curriculum">
+		<property name="name" value="nameCurriculum1" />
+		<property name="email" value="curriculum1@curriculum.com" />
+		<property name="whatsappNumber" value="+34647311854" />		
+		<property name="linkToLinkedIn" value="https://es.linkedinCurriculum1.com/" />
+		<property name="dancer" ref="dancer1" />
+		
+		<property name="styleRecords">
+			<list>
+				<ref bean="styleRecordCurriculum1" />
+				<ref bean="styleRecordCurriculum2" />
+			</list>
+		</property>
+		
+		<property name="customRecords">
+			<list>
+				<ref bean="customRecordCurriculum1" />
+			</list>
+		</property>
+		
+		<property name="endorserRecords">
+			<list>
+				<ref bean="endorserRecordCurriculum1" />
+			</list>
+		</property>
+		
+	</bean>
+
+	<bean id="curriculum2" class="domain.Curriculum">
+		<property name="name" value="nameCurriculum2" />
+		<property name="email" value="curriculum2@curriculum.com" />
+		<property name="whatsappNumber" value="+34647311854" />		
+		<property name="linkToLinkedIn" value="https://es.linkedinCurriculum2.com/" />
+		<property name="dancer" ref="dancer1" />
+		
+		<property name="styleRecords">
+			<list>
+				<ref bean="styleRecordCurriculum3" />
+			</list>
+		</property>
+		
+		<property name="customRecords">
+			<list>
+				<ref bean="customRecordCurriculum2" />
+				<ref bean="customRecordCurriculum3" />
+			</list>
+		</property>
+		
+		<property name="endorserRecords">
+			<list>
+				<ref bean="endorserRecordCurriculum2" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="curriculum3" class="domain.Curriculum">
+		<property name="name" value="nameCurriculum3" />
+		<property name="email" value="curriculum3@curriculum.com" />
+		<property name="whatsappNumber" value="+346473118120" />		
+		<property name="linkToLinkedIn" value="https://es.linkedinCurriculum3.com/" />
+		<property name="dancer" ref="dancer2" />
+		
+		<property name="styleRecords">
+			<list>
+				<ref bean="styleRecordCurriculum4" />
+				<ref bean="styleRecordCurriculum5" />
+			</list>
+		</property>
+		
+		<property name="customRecords">
+			<list>
+			</list>
+		</property>
+		
+		<property name="endorserRecords">
+			<list>
+				<ref bean="endorserRecordCurriculum3" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="curriculum4" class="domain.Curriculum">
+		<property name="name" value="nameCurriculum4" />
+		<property name="email" value="curriculum4@curriculum.com" />
+		<property name="whatsappNumber" value="+34647311006" />		
+		<property name="linkToLinkedIn" value="https://es.linkedinCurriculum4.com/" />
+		<property name="dancer" ref="dancer3" />
+
+		<property name="styleRecords">
+			<list>
+			</list>
+		</property>
+		
+		<property name="customRecords">
+			<list>
+				<ref bean="customRecordCurriculum4" />
+				<ref bean="customRecordCurriculum5" />
+				<ref bean="customRecordCurriculum6" />
+			</list>
+		</property>
+		
+		<property name="endorserRecords">
+			<list>
+				<ref bean="endorserRecordCurriculum4" />
+			</list>
+		</property>
+	</bean>
+	
+	<!-- STYLERECORDS -->
+
+	<bean id="styleRecordCurriculum1" class="domain.StyleRecord">
+		<property name="years" value="2" />
+		<property name="reference" value="salsa" />
+		<property name="curriculum" ref="curriculum1" />
+	</bean>
+	
+	<bean id="styleRecordCurriculum2" class="domain.StyleRecord">
+		<property name="years" value="1" />
+		<property name="reference" value="salsa" />
+		<property name="curriculum" ref="curriculum1" />
+	</bean>
+	
+	<bean id="styleRecordCurriculum3" class="domain.StyleRecord">
+		<property name="years" value="3" />
+		<property name="reference" value="salsa" />
+		<property name="curriculum" ref="curriculum2" />
+	</bean>
+	
+	<bean id="styleRecordCurriculum4" class="domain.StyleRecord">
+		<property name="years" value="1" />
+		<property name="reference" value="kizomba" />
+		<property name="curriculum" ref="curriculum3" />
+	</bean>
+	
+	<bean id="styleRecordCurriculum5" class="domain.StyleRecord">
+		<property name="years" value="1" />
+		<property name="reference" value="bachata" />
+		<property name="curriculum" ref="curriculum3" />
+	</bean>
+	
+	
+	<!-- CUSTOMRECORDS -->
+
+	<bean id="customRecordCurriculum1" class="domain.CustomRecord">
+		<property name="title" value="titleCustomRecord1" />
+		<property name="pieceOfText" value="pieceOfTextCustomRecord1" />
+		
+		<property name="links">
+			<list>
+				<value>http://www.link1.com</value>
+				<value>http://www.link2.com</value>
+			</list>
+		</property>
+		
+		<property name="curriculum" ref="curriculum1" />
+	</bean>	
+	
+	<bean id="customRecordCurriculum2" class="domain.CustomRecord">
+		<property name="title" value="titleCustomRecord2" />
+		<property name="pieceOfText" value="pieceOfTextCustomRecord2" />
+		
+		<property name="links">
+			<list>
+				<value>http://www.link3.com</value>
+				<value>http://www.link4.com</value>
+			</list>
+		</property>
+		
+		<property name="curriculum" ref="curriculum2" />
+	</bean>	
+
+	<bean id="customRecordCurriculum3" class="domain.CustomRecord">
+		<property name="title" value="titleCustomRecord3" />
+		<property name="pieceOfText" value="pieceOfTextCustomRecord3" />
+		
+		<property name="links">
+			<list>
+				<value>http://www.link5.com</value>
+			</list>
+		</property>
+		
+		<property name="curriculum" ref="curriculum2" />
+	</bean>	
+	
+	<bean id="customRecordCurriculum4" class="domain.CustomRecord">
+		<property name="title" value="titleCustomRecord4" />
+		<property name="pieceOfText" value="pieceOfTextCustomRecord4" />
+		
+		<property name="links">
+			<list>
+				<value>http://www.link6.com</value>
+			</list>
+		</property>
+		
+		<property name="curriculum" ref="curriculum4" />
+	</bean>	
+	
+	<bean id="customRecordCurriculum5" class="domain.CustomRecord">
+		<property name="title" value="titleCustomRecord5" />
+		<property name="pieceOfText" value="pieceOfTextCustomRecord5" />
+		
+		<property name="links">
+			<list>
+				<value>http://www.link7.com</value>
+			</list>
+		</property>
+		
+		<property name="curriculum" ref="curriculum4" />
+	</bean>
+	
+	<bean id="customRecordCurriculum6" class="domain.CustomRecord">
+		<property name="title" value="titleCustomRecord6" />
+		<property name="pieceOfText" value="pieceOfTextCustomRecord6" />
+		
+		<property name="links">
+			<list>
+				<value>http://www.link8.com</value>
+			</list>
+		</property>
+		
+		<property name="curriculum" ref="curriculum4" />
+	</bean>		
+	
+	
+	<!-- ENDORSERRECORDS -->
+	
+	<bean id="endorserRecordCurriculum1" class="domain.EndorserRecord">
+		<property name="fullName" value="fullNameEndorserRecord1" />
+		<property name="contact" ref="contact1" />
+		<property name="curriculum" ref="curriculum1" />
+	</bean>			
+	
+	<bean id="endorserRecordCurriculum2" class="domain.EndorserRecord">
+		<property name="fullName" value="fullNameEndorserRecord2" />
+		<property name="contact" ref="contact2" />
+		<property name="curriculum" ref="curriculum2" />
+	</bean>	
+	
+	<bean id="endorserRecordCurriculum3" class="domain.EndorserRecord">
+		<property name="fullName" value="fullNameEndorserRecord3" />
+		<property name="contact" ref="contact3" />
+		<property name="curriculum" ref="curriculum3" />
+	</bean>
+	
+	<bean id="endorserRecordCurriculum4" class="domain.EndorserRecord">
+		<property name="fullName" value="fullNameEndorserRecord4" />
+		<property name="contact" ref="contact4" />
+		<property name="curriculum" ref="curriculum4" />
+	</bean>		
+
+	<!-- ENDORSERRECORDS -->
+	
+	<bean id="contact1" class="domain.Contact">
+		<property name="means" value="means1" />
+		<property name="value" value="value1" />
+	</bean>	
+	
+	<bean id="contact2" class="domain.Contact">
+		<property name="means" value="means2" />
+		<property name="value" value="value2" />
+	</bean>				
+	
+	<bean id="contact3" class="domain.Contact">
+		<property name="means" value="means3" />
+		<property name="value" value="value3" />
+	</bean>		
+	
+	<bean id="contact4" class="domain.Contact">
+		<property name="means" value="means4" />
+		<property name="value" value="value4" />
+	</bean>		
+	
+	<!-- DALEMS -->
+
+	<bean id="dalem1" class="domain.Dalem">
+		<property name="code" value="7432--00000" />
+		<property name="createMoment" value="05/06/2017" />
+		<property name="title" value="title1" />
+		<property name="description" value="description1" />
+		<property name="assessment" value="Highly Recommended"/>
+		<property name="administrator" ref="admin" />
+		<property name="course" ref="course1" />
+		<property name="cancel" value="false"/>
+	</bean>
+	
+	<bean id="dalem2" class="domain.Dalem">
+		<property name="code" value="342--29" />
+		<property name="createMoment" value="06/06/2017" />
+		<property name="title" value="title2" />
+		<property name="description" value="description2" />
+		<property name="assessment" value="Recommended"/>
+		<property name="administrator" ref="admin" />
+		<property name="course" ref="course2" />
+		<property name="cancel" value="false"/>
+	</bean>
+	
+	<bean id="dalem3" class="domain.Dalem">
+		<property name="code" value="123--0003" />
+		<property name="createMoment" value="08/06/2017" />
+		<property name="title" value="title3" />
+		<property name="description" value="description3" />
+		<property name="assessment" value="Not Recommended"/>
+		<property name="administrator" ref="admin" />
+		<property name="course" ref="course3" />
+		<property name="cancel" value="false"/>
+	</bean>
+	
+	<bean id="dalem4" class="domain.Dalem">
+		<property name="code" value="001--0004" />
+		<property name="createMoment" value="06/06/2017" />
+		<property name="title" value="title4" />
+		<property name="description" value="description4" />
+		<property name="assessment" value="Highly Recommended"/>
+		<property name="administrator" ref="admin2" />
+		<property name="course" ref="course4" />
+		<property name="cancel" value="false"/>
+	</bean>
+</beans>

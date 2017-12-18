@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="display" uri="http://displaytag.sf.net"%>
+
+<%@ taglib prefix="acme" tagdir="/WEB-INF/tags"%>
+
+<form:form action="curriculum/edit.do" modelAttribute="curriculum">
+
+	<form:hidden path="id"/>
+	<form:hidden path="version"/>
+
+	<form:hidden path="dancer" />
+	<form:hidden path="styleRecords" />
+	<form:hidden path="customRecords" />
+	<form:hidden path="endorserRecords" />
+	
+	<div>
+		<fieldset>
+			<b> <spring:message code="edit.information" /></b>
+		</fieldset>
+	</div>
+	<br/>
+
+
+	<acme:textbox code="curriculum.name" path="name" mandatory="true" />
+	<br />
+
+	<acme:textbox code="curriculum.email" path="email" />
+	<br />
+
+	<acme:textbox code="curriculum.whatsappNumber" path="whatsappNumber" />
+	<br />
+
+	<acme:textbox code="curriculum.linkToLinkedIn" path="linkToLinkedIn" />
+	<br />
+
+	<acme:submit id="submitButton" name="save" code="curriculum.submit" />
+	
+	<jstl:if test = "${curriculum.id != 0}">
+	<input type="submit" name="delete"
+		value="<spring:message code="curriculum.delete" />" 
+		onclick="return confirm('<spring:message code = "curriculum.confirm.delete"/>')"/>
+	</jstl:if>
+	
+	<acme:cancel code="curriculum.cancel" url="curriculum/list.do" />
+
+</form:form>

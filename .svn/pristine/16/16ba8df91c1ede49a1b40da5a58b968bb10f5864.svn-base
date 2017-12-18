@@ -1,0 +1,29 @@
+# messages.properties
+#
+# Copyright (C) 2017 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+apply.createMoment			= Create moment
+apply.status				= Status
+apply.dancer				= Dancer
+apply.course				= Course
+apply.curriculum			= Curriculum
+apply.notCurriculum			= No curriculum attached
+
+choose						= Choose
+
+apply.edit					= Edit
+apply.notEdit				= Is not possible to edit
+
+apply.createStudent			= Are you sure you want to join this course as student?
+apply.createTeacher			= Are you sure you want to join this course as teacher?
+
+apply.submit				= Submit
+apply.cancel				= Cancel
+
+apply.save.error			= Cannot commit operation
+apply.create.error 			= Cannot perform the operation because the course is over or you are already signed
+apply.createTeacher.error 	= Cannot perform the operation because the course has started, you are already signed or you haven't attached a cv

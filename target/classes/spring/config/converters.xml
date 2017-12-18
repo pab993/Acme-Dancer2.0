@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- * converters.xml * * Copyright (C) 2017 Universidad de Sevilla * * The 
+	use of this project is hereby constrained to the conditions of the * TDG 
+	Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd		
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd		
+	">
+
+	<util:list id="converters">
+		<bean class="converters.AuthorityToStringConverter" />
+		<bean class="converters.StringToAuthorityConverter" />
+		
+		<bean class="converters.UserAccountToStringConverter" />
+		<bean class="converters.StringToUserAccountConverter" />
+		
+		<bean class="converters.StringToActorConverter" />
+		<bean class="converters.ActorToStringConverter" />
+		
+		<bean class="converters.StringToAdministratorConverter" />
+		<bean class="converters.AdministratorToStringConverter" />
+		
+		<bean class="converters.StringToAdministratorConverter" />
+		<bean class="converters.AdministratorToStringConverter" />
+		
+		<bean class="converters.StringToStyleConverter" />
+		<bean class="converters.StyleToStringConverter" />
+
+		<bean class="converters.StringToCourseConverter" />
+		<bean class="converters.CourseToStringConverter" />
+
+		<bean class="converters.StringToDancerConverter" />
+		<bean class="converters.DancerToStringConverter" />	
+		
+		<bean class="converters.StringToAcademyConverter" />
+		<bean class="converters.AcademyToStringConverter" />
+		
+		<bean class="converters.StringToApplyConverter" />
+		<bean class="converters.ApplyToStringConverter" />	
+
+		<bean class="converters.StringToCurriculumConverter" />
+		<bean class="converters.CurriculumToStringConverter" />
+		
+		<bean class="converters.StringToCustomRecordConverter" />
+		<bean class="converters.CustomRecordToStringConverter" />		
+		
+		<bean class="converters.StringToEndorserRecordConverter" />
+		<bean class="converters.EndorserRecordToStringConverter" />
+		
+		<bean class="converters.StringToStyleRecordConverter" />
+		<bean class="converters.StyleRecordToStringConverter" />
+		
+		<bean class="converters.StringToTracksonConverter" />
+		<bean class="converters.TracksonToStringConverter" />	
+	</util:list>
+
+</beans>

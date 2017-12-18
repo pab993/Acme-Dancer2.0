@@ -1,0 +1,33 @@
+# messages.properties
+#
+# Copyright (C) 2017 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+course.title			= Title
+course.level			= Level
+course.startDate		= Start Date
+course.endDate			= End Date
+course.day				= Day
+course.hour				= Hour
+
+course.create			= Create a new course
+course.applyList		= List of applications
+course.style			= View style
+course.edit				= Edit
+
+course.applyTeacher		= Apply as a teacher
+course.applyStudent		= Apply as a student
+
+course.submit			= Submit
+course.cancel			= Cancel
+course.delete			= Delete
+course.searchText		= Search text
+course.search			= Search
+
+course.save.error		= Cannot submit this operation
+course.delete.error		= Cannot delete this course because it has applies
+
+course.displayAcademy	= See academy
